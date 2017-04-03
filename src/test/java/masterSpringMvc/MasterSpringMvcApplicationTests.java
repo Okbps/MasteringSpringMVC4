@@ -1,4 +1,4 @@
-package masterspringmvc;
+package masterSpringMvc;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

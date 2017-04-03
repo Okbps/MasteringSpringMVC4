@@ -1,6 +1,6 @@
-package masterspringmvc.profile;
+package masterSpringMvc.profile;
 
-import masterspringmvc.date.PastLocalDate;
+import masterSpringMvc.date.PastLocalDate;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 

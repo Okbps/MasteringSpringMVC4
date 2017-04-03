@@ -1,6 +1,6 @@
-package masterspringmvc;
+package masterSpringMvc;
 
-import masterspringmvc.config.PictureUploadProperties;
+import masterSpringMvc.config.PictureUploadProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

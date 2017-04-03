@@ -1,4 +1,4 @@
-package masterspringmvc.date;
+package masterSpringMvc.date;
 
 import org.springframework.format.Formatter;
 

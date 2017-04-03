@@ -1,6 +1,6 @@
-package masterspringmvc.profile;
+package masterSpringMvc.profile;
 
-import masterspringmvc.date.USLocalDateFormatter;
+import masterSpringMvc.date.USLocalDateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -25,6 +25,7 @@ public class ProfileController {
     public ProfileController(UserProfileSession userProfileSession) {
         this.userProfileSession = userProfileSession;
     }
+
     @ModelAttribute("dateFormat")
     public String localeFormat(Locale locale) {
         return USLocalDateFormatter.getPattern(locale);
@@ -46,7 +47,7 @@ public class ProfileController {
             return "profile/profilePage";
         }else{
             userProfileSession.saveForm(profileForm);
-            return "redirect:profile";
+            return "redirect:/search/mixed;keywords=" + String.join(",", profileForm.getTastes());
         }
     }
 

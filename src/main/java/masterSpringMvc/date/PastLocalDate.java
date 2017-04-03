@@ -1,4 +1,4 @@
-package masterspringmvc.date;
+package masterSpringMvc.date;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
