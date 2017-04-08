@@ -23,7 +23,6 @@ import java.util.Locale;
  * Created by Aspire on 26.03.2017.
  */
 @Controller
-@SessionAttributes("picturePath")
 public class PictureUploadController {
     private final Resource picturesDir;
     private final Resource anonymousPicture;
@@ -42,11 +41,6 @@ public class PictureUploadController {
         this.userProfileSession = userProfileSession;
     }
 
-    @ModelAttribute("picturePath")
-    public Resource picturePath() {
-        return anonymousPicture;
-    }
-
     @RequestMapping("upload")
     public String uploadPage() {
         return "profile/uploadPage";
@@ -60,7 +54,6 @@ public class PictureUploadController {
         }
 
         Resource picturePath = copyFileToPictures(file);
-//        userProfileSession.setPicturePath(picturePath);
         userProfileSession.setPicturePath(picturePath.getURL());
 
         return "redirect:/profile";
