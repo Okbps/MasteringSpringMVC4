@@ -46,7 +46,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-redis'
     compile 'org.springframework.session:spring-session:1.3.0.RELEASE'
 
-    compile 'org.springframework.data:spring-data-redis:1.8.1.RELEASE' // redundant(?)
+    compile 'org.springframework.data:spring-data-redis:1.8.1.RELEASE'
     compile 'redis.clients:jedis'
     compile 'org.apache.commons:commons-pool2'
 

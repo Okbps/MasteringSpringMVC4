@@ -2,8 +2,6 @@ package masterSpringMvc.profile;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -42,21 +40,17 @@ public class UserProfileSession implements Serializable {
         return profileForm;
     }
 
-//    public void setPicturePath(Resource picturePath) throws IOException {
-//        this.picturePath = picturePath.getURL();
-//    }
-
     public void setPicturePath(URL picturePath) throws IOException {
         this.picturePath = picturePath;
+    }
+
+    public void setTastes(List<String> tastes) {
+        this.tastes = tastes;
     }
 
     public URL getPicturePath() {
         return picturePath;
     }
-
-//    public Resource getPicturePath() {
-//        return picturePath == null ? null : new UrlResource(picturePath);
-//    }
 
     public List<String> getTastes() {
         return tastes;
