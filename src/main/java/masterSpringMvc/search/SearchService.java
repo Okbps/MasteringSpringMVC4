@@ -12,14 +12,15 @@ import java.util.stream.Collectors;
  * Created by Aspire on 27.03.2017.
  */
 @Service
-public class SearchService {
+public class SearchService implements TwitterSearch {
     private Twitter twitter;
     @Autowired
     public SearchService(Twitter twitter) {
         this.twitter = twitter;
     }
 
-    public List<LightTweet> search(String searchType, List<String>keywords) {
+    @Override
+    public List<LightTweet> search(String searchType, List<String> keywords) {
         List<SearchParameters> searches = keywords.stream()
                 .map(taste -> createSearchParam(searchType, taste))
                 .collect(Collectors.toList());
