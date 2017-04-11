@@ -34,7 +34,6 @@ public class UserRepository {
         return userMap.get(email);
     }
 
-
     public List<User> findAll() {
         return new ArrayList<>(userMap.values());
     }
@@ -48,5 +47,12 @@ public class UserRepository {
 
     public boolean exists(String email) {
         return userMap.containsKey(email);
+    }
+
+    public void reset(User... users) {
+        userMap.clear();
+        for (User user : users) {
+            save(user);
+        }
     }
 }

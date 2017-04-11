@@ -26,3 +26,4 @@ nbdist/
 pictures/
 /src/main/java/masterSpringMvc/TestClass.java
 /src/main/resources/tomcat.keystore
+/integrationTest.groovy

@@ -13,6 +13,13 @@ public class User {
     private LocalDate birthDate;
     private List<String> tastes = new ArrayList<>();
 
+    public User() {
+    }
+
+    public User(String email) {
+        this.email = email;
+    }
+
     public String getTwitterHandle() {
         return twitterHandle;
     }
