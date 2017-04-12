@@ -14,9 +14,9 @@ import java.util.List;
  */
 @Controller
 public class SearchController {
-    private SearchService searchService;
+    private TwitterSearch searchService;
     @Autowired
-    public SearchController(SearchService searchService) {
+    public SearchController(TwitterSearch searchService) {
         this.searchService = searchService;
     }
 

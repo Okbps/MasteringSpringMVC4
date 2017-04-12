@@ -4,6 +4,7 @@ import masterSpringMvc.search.LightTweet;
 import masterSpringMvc.search.SearchService;
 import masterSpringMvc.search.TwitterSearch;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/search")
+@Profile("!async")
 public class SearchApiController implements TwitterSearch{
     private SearchService searchService;
     @Autowired
