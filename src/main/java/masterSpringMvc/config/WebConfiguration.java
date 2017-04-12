@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import masterSpringMvc.authentication.DatabaseSocialConfigurer;
 import masterSpringMvc.date.USLocalDateFormatter;
-import org.apache.catalina.connector.Connector;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.web.servlet.ErrorPage;
@@ -15,16 +14,17 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.social.config.annotation.SocialConfigurer;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.ShallowEtagHeaderFilter;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.util.UrlPathHelper;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import javax.servlet.Filter;
 
 import javax.sql.DataSource;
 import java.time.LocalDate;
@@ -86,6 +86,11 @@ public class WebConfiguration extends WebMvcConfigurerAdapter{
         urlPathHelper.setRemoveSemicolonContent(false);
         configurer.setUrlPathHelper(urlPathHelper);
         configurer.setUseRegisteredSuffixPatternMatch(true);
+    }
+
+    @Bean
+    public Filter etagFilter() {
+        return new ShallowEtagHeaderFilter();
     }
 
 //    @Override

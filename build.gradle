@@ -57,6 +57,7 @@ dependencies {
     compile 'org.springframework.data:spring-data-redis:1.8.1.RELEASE'
     compile 'redis.clients:jedis'
     compile 'org.apache.commons:commons-pool2'
+    compile 'org.webjars.bower:lodash:4.17.4'
 //    compile 'org.eclipse.jetty:jetty-servlets'
 
 	testCompile 'org.springframework.boot:spring-boot-starter-test'

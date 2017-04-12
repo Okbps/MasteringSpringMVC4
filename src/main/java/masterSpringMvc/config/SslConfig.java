@@ -6,6 +6,7 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.io.IOException;
  * Created by Aspire on 08.04.2017.
  */
 @Configuration
+@Profile("ssl")
 public class SslConfig {
     @Bean
     public EmbeddedServletContainerFactory servletContainer() throws IOException {
