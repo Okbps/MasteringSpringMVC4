@@ -27,6 +27,8 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .antMatcher("/api/**")
+                .headers().cacheControl().disable()
+                .and()
                 .httpBasic()
                 .and()
                 .csrf().disable()
