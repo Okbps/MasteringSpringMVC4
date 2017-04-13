@@ -1,10 +1,11 @@
 /**
- * Created by Aspire on 12.04.2017.
+ * Created by Aspire on 13.04.2017.
  */
 var baseUrl = "/api/search";
 var currentLocation = window.location.href;
-var search = currentLocation.substr(currentLocation.lastIndexOf('/'));
-var url = baseUrl + search;
+var search1 = currentLocation.substr(currentLocation.lastIndexOf('/'));
+var search2 = currentLocation.substr(currentLocation.lastIndexOf('=') + 1);
+var url = baseUrl + search1;
 
 $.ajax({
     url: url,
@@ -13,7 +14,6 @@ $.ajax({
     success: onResponse,
     error: onError
 });
-
 
 
 function getLastQuery() {
@@ -45,7 +45,6 @@ function onResponse(tweets, status, xhr) {
     displayTweets(tweets);
 }
 function displayTweets(tweets) {
-    $('#tweets').empty();
     $.each(tweets, function (index, tweet) {
         addTweet(tweet);
     })
@@ -54,9 +53,24 @@ function displayTweets(tweets) {
 function addTweet(tweet) {
     var template = _.template('<li class="collection-item avatar">' +
         '<img class="circle" src="${tweet.profileImageUrl}" />' +
-        '<span class="title">${tweet.user}</span>' +
+        '<span class="title">${tweet.userName}</span>' +
         '<p>${tweet.text}</p>' +
         '</li>');
     $('#tweets').append(template({tweet: tweet}));
+}
+
+function connect() {
+    var socket = new SockJS('/hello');
+    stompClient = Stomp.over(socket);
+// stompClient.debug = null;
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/searchResults', function (result)
+        {
+            displayTweets(JSON.parse(result.body));
+        });
+        stompClient.send("/app/search", {}, JSON.stringify(search.
+        split(',')));
+    });
 }
 

@@ -28,16 +28,6 @@ repositories {
 	mavenCentral()
 }
 
-//configurations {
-//    testCompile {
-//        exclude module: 'selenium-safari-driver'
-//        exclude module: 'selenium-ie-driver'
-//        exclude module: 'selenium-firefox-driver'
-//        exclude module: 'selenium-htmlunit-driver'
-//        exclude module: 'selenium-chrome-driver'
-//    }
-//}
-
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -58,29 +48,16 @@ dependencies {
     compile 'redis.clients:jedis'
     compile 'org.apache.commons:commons-pool2'
     compile 'org.webjars.bower:lodash:4.17.4'
-//    compile 'org.eclipse.jetty:jetty-servlets'
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    compile 'org.springframework:spring-messaging'
+    compile 'org.webjars:sockjs-client:1.1.2'
+    compile 'org.webjars:stomp-websocket:2.3.3-1'
 
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'com.jayway.jsonpath:json-path'
     testCompile 'org.assertj:assertj-core:3.6.2'
-
-//    testCompile 'org.fluentlenium:fluentlenium-assertj:3.1.1'
-//    testCompile 'com.codeborne:phantomjsdriver:1.4.1'
-//    testCompile 'org.seleniumhq.selenium:selenium-java:3.3.1'
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
 }
-
-//configurations {
-//    integrationTestCompile.extendsFrom testCompile
-//    integrationTestRuntime.extendsFrom testRuntime
-//}
-//
-//sourceSets {
-//    integrationTest {
-//        compileClasspath += main.output + test.output
-//        runtimeClasspath += main.output + test.output
-//    }
-//}

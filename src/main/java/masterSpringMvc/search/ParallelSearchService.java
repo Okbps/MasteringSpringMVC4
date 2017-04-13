@@ -65,20 +65,20 @@ public class ParallelSearchService implements TwitterSearch{
         latch.countDown();
     }
 
-    @Component
-    private static class AsyncSearch {
-        protected final Log logger = LogFactory.getLog(getClass());
-        private SearchCache searchCache;
-
-        @Autowired
-        public AsyncSearch(SearchCache searchCache) {
-            this.searchCache = searchCache;
-        }
-
-        @Async
-        public ListenableFuture<List<LightTweet>> asyncFetch(String searchType, String keyword) {
-            logger.info(Thread.currentThread().getName() + " - Searching for " + keyword);
-            return new AsyncResult<>(searchCache.fetch(searchType, keyword));
-        }
-    }
+//    @Component
+//    private static class AsyncSearch {
+//        protected final Log logger = LogFactory.getLog(getClass());
+//        private SearchCache searchCache;
+//
+//        @Autowired
+//        public AsyncSearch(SearchCache searchCache) {
+//            this.searchCache = searchCache;
+//        }
+//
+//        @Async
+//        public ListenableFuture<List<LightTweet>> asyncFetch(String searchType, String keyword) {
+//            logger.info(Thread.currentThread().getName() + " - Searching for " + keyword);
+//            return new AsyncResult<>(searchCache.fetch(searchType, keyword));
+//        }
+//    }
 }

@@ -4,6 +4,10 @@ package masterSpringMvc;
  * Created by Aspire on 06.04.2017.
  */
 public class TestClass {
+    public static void main(String[] args) {
+
+    }
+
     public static class Product {
         public Product(String title, int size) {
             this.title = title;
