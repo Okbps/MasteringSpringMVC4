@@ -1,15 +1,9 @@
 package masterSpringMvc.search;
 
-import masterSpringMvc.search.cache.SearchCache;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.AsyncResult;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +14,7 @@ import java.util.concurrent.CountDownLatch;
  * Created by Aspire on 12.04.2017.
  */
 @Service
+@Primary
 @Profile("async")
 public class ParallelSearchService implements TwitterSearch{
     private final AsyncSearch asyncSearch;
